@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en">
+<head>
+	<meta charset="utf-8"></meta>
+	<title>
+      rainyday.js demo
+    </title>
+    <!link href="favicon.ico" rel="shortcut icon">
+    <style media="screen">
+      
+			img { display: none; }
+			body { overflow: hidden; }
+			#canvas { position: absolute; top: 0; left: 0; }
+		
+    </style><script src="rainyday.js"></script><script>
+      function demo() {
+				var engine = new RainyDay('canvas', 'background', window.innerWidth, window.innerHeight);
+				engine.gravity = engine.GRAVITY_NON_LINEAR;
+				engine.trail = engine.TRAIL_DROPS;
+
+				engine.rain([
+					engine.preset(0, 2, 500)
+				]);
+
+				engine.rain([
+					engine.preset(3, 3, 0.88),
+					engine.preset(5, 5, 0.9),
+					engine.preset(6, 2, 1),
+				], 100);
+			}
+    </script>
+    </head>
+    <body onload="demo();">
+    	<img id="background" alt="background" src="urbanbugout.jpg"></img>
+    	<div id="cholder">
+    		<canvas id="canvas" style="width: 1395px; height: 719px;" width="1395" height="719"></canvas>
+    		<canvas width="1395" height="719" style="position: absolute; top: 0px; left: 0px; z-index: 100; opacity: 1;"></canvas>
+    	</div>
+    </body>
+</html>
